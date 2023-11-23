@@ -1,0 +1,30 @@
+class Solution(object):
+    def isAnagram(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
+
+        if len(s) != len(t):
+            return False
+        
+        # initialize map so that i can count occurance of characters
+        word = {}
+
+        # put s into the map
+        for x in s:
+            if x in word:
+                word[x] += 1
+            else:
+                word[x] = 1
+        
+        # compare t with word
+        for y in t:
+            if y not in word or word[y]<=0:
+                return False
+            word[y] -= 1
+        return True
+
+
+        # Time Complexity: O(n)
