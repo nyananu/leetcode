@@ -1,0 +1,33 @@
+# https://leetcode.com/problems/valid-palindrome/submissions/
+
+class Solution(object):
+    def isPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        # first convert string to lowercase
+        s_lower = s.lower()  
+
+        # remove all non-alphanum chars from string
+        
+        filtered_string = []
+
+        for char in s_lower:
+            if char.isalnum():
+                filtered_string.append(char)
+
+    
+        
+        # create beginning pointer and end pointer and check if begin <= end. Exit loop when crossover
+
+        p_begin = 0
+        p_end = len(filtered_string) - 1
+
+        while p_begin <= p_end:
+            if  filtered_string[p_begin] !=  filtered_string[p_end]:
+                return False
+            p_begin +=1
+            p_end -=1
+
+        return True;   
