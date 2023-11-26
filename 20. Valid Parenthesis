@@ -14,7 +14,7 @@ class Solution(object):
         for char in s: 
             if char in ['(', '{', '[']:
                 stack.append(char)
-            elif not stack or bracket_map.get(stack.pop()) != char:
+            elif not stack or char != bracket_map.get(stack.pop()):
                 return False
         return (len(stack) == 0)
 
