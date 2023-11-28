@@ -1,0 +1,30 @@
+# https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/
+
+class Solution(object):
+    def maxProfit(self, prices):
+        """
+        :type prices: List[int]
+        :rtype: int
+        """
+        # buying always happening before selling
+
+        p_buy = 0
+        p_sell = 1
+        max_profit = 0
+
+        # now checking array while p_sell doesn't reach end of array
+
+        while p_sell < len(prices):
+            if prices[p_buy] < prices[p_sell]:
+                profit_so_far = prices[p_sell] - prices[p_buy]
+
+                # will save value of profit in max_profit
+                max_profit = max(max_profit, profit_so_far) 
+            else:
+                # if we find that p_sell < p_buy, change p_buy to p_sell
+                p_buy = p_sell
+
+            # increment p_sell to go up the array
+            p_sell += 1
+        
+        return max_profit
