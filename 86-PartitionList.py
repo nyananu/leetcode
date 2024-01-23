@@ -10,7 +10,7 @@ class Solution(object):
         :type x: int
         :rtype: ListNode
         """
-        if head.next is None:
+        if head is None:
             return None
         
         current = head
