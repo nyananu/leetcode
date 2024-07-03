@@ -7,7 +7,7 @@ class Solution:
         return (s == t)
          
         # Time Complexity: O(n log n)
-        # Space Complexity: O(n)
+        # Space Complexity: O(n) because sorted() creates a new array, whereas sort does in-place sorting
         
         xxxxxxxxxxxxxxxxxxxxxxxxxxx
 
