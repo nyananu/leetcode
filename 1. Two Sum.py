@@ -2,17 +2,27 @@
 
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        # create map to have key as curr, and index as val
-        # go through map to see what is target - num, and get its corresponding index
-        
-        num_map = {}
+       # Option 1
 
-        # whenever we want to keep track of index as well, we use enumerate
-        for i, n in enumerate(nums):
-            diff = target - n
-        
-        # if the diff is in the map, get the index of the curr (num_map[diff]) and the current index
-            if diff not in num_map:
-                num_map[n] = i
-            else:
-                return [num_map[diff], i]
+         for i in range(len(nums)):
+            for j in range(len(nums)):
+                if (nums[i] + nums[j] == target) and (i != j):
+                    return([i,j])
+
+# Time Complexity: O(n^2)
+# Space Complexity: O(1)
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    # Option 2
+
+        index_map = {}
+
+        for i in range(len(nums)):
+            x = target - nums[i] 
+            if (x in index_map): 
+                return([index_map[x], i])
+            index_map[nums[i]] = i
+
+# Time Complexity: O(n)
+# Space Complexity: O(n)
+
