@@ -3,14 +3,14 @@
         # Approach 1: Map/Dict
         
        class Solution:
-        def containsDuplicate(self, nums: List[int]) -> bool:
-        occurance_map = {}
+        def hasDuplicate(self, nums: List[int]) -> bool:
+        freq_map = {}
 
         for i in nums:
-            if i in occurance_map:
-                return True
+            if (i not in freq_map):
+                freq_map[i] = 1
             else:
-                occurance_map.update({ i: 1 })
+                return True
         return False
 
         # Time Complexity: O(n) because map has constant time reads of O(1)
